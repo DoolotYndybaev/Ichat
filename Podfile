@@ -7,4 +7,5 @@ target 'Ichat' do
 
   # Pods for Ichat
   pod 'Firebase/Auth'
+  pod 'FirebaseFirestore'
 end

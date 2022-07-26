@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
-
+import FirebaseFirestore
 
 class Service {
     static let shared = Service()
@@ -21,8 +21,10 @@ class Service {
         Auth.auth().createUser(withEmail: data.email, password:data.password) {  result, err in
             if err == nil {
                 if result != nil {
-//                    let userID = result?.user.uid
-                    
+                    let userID = result?.user.uid
+                    let email = data.email
+                    let data: [String: Any] = ["email":email]
+                    Firestore.firestore().collection("users").document(userID!).setData(data)
                     completion(ResponceCode(code: 1))
                 }
             } else {
