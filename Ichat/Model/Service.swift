@@ -39,4 +39,20 @@ class Service {
             }
         })
     }
+    
+    func authInApp(_ data: LoginField, completion: @escaping (ResponceCode)->()){
+        Auth.auth().signIn(withEmail: data.email, password: data.password) { result, err in
+            if err != nil {
+                print(err?.localizedDescription as Any)
+            } else {
+                if let result = result {
+                    if result.user.isEmailVerified {
+                        completion(ResponceCode(code: 1))
+                    } else {
+                        completion(ResponceCode(code: 0))
+                    }
+                }
+            }
+        }
+    }
 }

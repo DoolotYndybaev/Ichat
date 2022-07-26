@@ -11,6 +11,8 @@ import FirebaseAuth
 
 class AuthViewController: UIViewController {
     
+    var service = Service.shared
+    
     @IBOutlet weak var emailView: UIView!
     
     @IBOutlet weak var emailField: UITextField!
@@ -37,5 +39,6 @@ class AuthViewController: UIViewController {
     }
     
     @IBAction func sigInBtn(_ sender: Any) {
+
     }
 }
