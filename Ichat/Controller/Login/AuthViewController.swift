@@ -11,8 +11,12 @@ import FirebaseAuth
 
 class AuthViewController: UIViewController {
     
- 
-
+    @IBOutlet weak var emailView: UIView!
+    
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var passwordView: UIView!
+    @IBOutlet weak var passwordField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,4 +33,9 @@ class AuthViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
    
+    @IBAction func noAccountBtn(_ sender: Any) {
+    }
+    
+    @IBAction func sigInBtn(_ sender: Any) {
+    }
 }

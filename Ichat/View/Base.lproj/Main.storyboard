@@ -387,6 +387,9 @@
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="No account?"/>
+                                                <connections>
+                                                    <action selector="noAccaountBtn:" destination="5A5-wG-wyo" eventType="touchUpInside" id="hRd-k5-Mmb"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ya5-zR-LfI">
                                                 <rect key="frame" x="77" y="384" width="200" height="50"/>
@@ -405,6 +408,9 @@
                                                         <integer key="value" value="25"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="sigInBtn:" destination="5A5-wG-wyo" eventType="touchUpInside" id="Qdw-ow-M77"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -442,6 +448,12 @@
                             <constraint firstItem="f02-6T-Etw" firstAttribute="leading" secondItem="EIN-EI-vfV" secondAttribute="leading" id="fxn-rl-Jvr"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="sry-Kf-4es" id="3vS-9v-qPh"/>
+                        <outlet property="emailView" destination="jXt-gL-CUx" id="Aok-xS-BsO"/>
+                        <outlet property="passwordField" destination="v0B-4x-nKH" id="in2-ms-whO"/>
+                        <outlet property="passwordView" destination="nCt-jd-b9B" id="u45-mV-Kgv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vxa-FW-3ok" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

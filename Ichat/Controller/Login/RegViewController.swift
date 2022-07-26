@@ -22,6 +22,7 @@ class RegViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.navigationItem.setHidesBackButton(true, animated: true)
         
         tapGest = UITapGestureRecognizer(target: self, action: #selector(endEditing))
