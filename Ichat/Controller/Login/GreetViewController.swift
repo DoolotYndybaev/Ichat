@@ -12,12 +12,12 @@ protocol OpenVCDelegate{
 }
 
 class GreetViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.setHidesBackButton(true, animated: true)
-
-
+        
+        
     }
     @IBAction func tabAuthVC(_ sender: Any) {
         openVC(identifier: "AuthViewController")

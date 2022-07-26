@@ -7,6 +7,12 @@
 
 import UIKit
 
+enum AuthResponses{
+    case error
+    case success
+    case noVerify
+}
+
 struct LoginField {
     var email: String
     var password: String

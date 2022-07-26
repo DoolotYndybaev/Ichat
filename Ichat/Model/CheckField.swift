@@ -36,11 +36,11 @@ class CheckField{
                 return false
             } else {
                 validView(parentView, field, true)
-                 return true
+                return true
             }
         case "email":
             if isValid("e", field.text!) {
-               validView(parentView, field, true)
+                validView(parentView, field, true)
                 return true
             } else {
                 validView(parentView, field, false)
@@ -60,7 +60,7 @@ class CheckField{
                 return false
             } else {
                 validView(parentView, field, true)
-                 return true
+                return true
             }
         }
     }
@@ -70,7 +70,7 @@ class CheckField{
         if valid{
             field.backgroundColor = #colorLiteral(red: 0.9410838485, green: 0.9412415624, blue: 0.9410631061, alpha: 1)
             parentView.backgroundColor = #colorLiteral(red: 0.9410838485, green: 0.9412415624, blue: 0.9410631061, alpha: 1)
-
+            
         } else {
             field.backgroundColor = #colorLiteral(red: 1, green: 0.2566739321, blue: 0.3427716792, alpha: 1)
             parentView.backgroundColor = #colorLiteral(red: 1, green: 0.2566739321, blue: 0.3427716792, alpha: 1)

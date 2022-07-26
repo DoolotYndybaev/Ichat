@@ -40,16 +40,17 @@ class Service {
         })
     }
     
-    func authInApp(_ data: LoginField, completion: @escaping (ResponceCode)->()){
+    func authInApp(_ data: LoginField, completion: @escaping (AuthResponses)->()){
         Auth.auth().signIn(withEmail: data.email, password: data.password) { result, err in
             if err != nil {
-                print(err?.localizedDescription as Any)
+                completion(.error)
             } else {
                 if let result = result {
                     if result.user.isEmailVerified {
-                        completion(ResponceCode(code: 1))
+                        completion(.success)
                     } else {
-                        completion(ResponceCode(code: 0))
+                        self.configureEmail()
+                        completion(.noVerify)
                     }
                 }
             }

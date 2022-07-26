@@ -27,7 +27,7 @@ class RegViewController: UIViewController {
         
         tapGest = UITapGestureRecognizer(target: self, action: #selector(endEditing))
         mainView.addGestureRecognizer(tapGest!)
-
+        
     }
     @objc func endEditing() {
         self.view.endEditing(true)
@@ -52,7 +52,7 @@ class RegViewController: UIViewController {
                     case 1:
                         self.service.configureEmail()
                         let alert = UIAlertController(title: "Ура", message: "Вы успешно зарегистрировались \n Вы можете авторизироваться", preferredStyle: .alert)
-                        let okBtn = UIAlertAction(title: "Ok", style: .default){_ in 
+                        let okBtn = UIAlertAction(title: "Ok", style: .default){_ in
                             let storyboard = UIStoryboard(name: "Main", bundle: nil)
                             let vc = storyboard.instantiateViewController(withIdentifier: "AuthViewController")
                             self.navigationController?.pushViewController(vc, animated: true)
@@ -70,5 +70,5 @@ class RegViewController: UIViewController {
                 self.present(alert, animated: true)            }
         }
     }
-
+    
 }

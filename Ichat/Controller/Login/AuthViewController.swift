@@ -14,8 +14,8 @@ class AuthViewController: UIViewController {
     var service = Service.shared
     var tapGest: UITapGestureRecognizer?
     var checkdield = CheckField.shared
-
-
+    
+    
     
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var emailView: UIView!
@@ -26,7 +26,7 @@ class AuthViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.navigationItem.setHidesBackButton(true, animated: true)
         
         tapGest = UITapGestureRecognizer(target: self, action: #selector(endEditing))
@@ -40,7 +40,7 @@ class AuthViewController: UIViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: "GreetViewController")
         self.navigationController?.pushViewController(vc, animated: true)
     }
-   
+    
     @IBAction func noAccountBtn(_ sender: Any) {
     }
     
@@ -49,16 +49,21 @@ class AuthViewController: UIViewController {
         {
             let authData = LoginField(email: emailField.text!, password: passwordField.text!)
             service.authInApp(authData) {[weak self] responce in
-                switch responce.code {
-                case 0:
-                    let alert = self?.alertAction("Ошибка", massage: "Что - то пошло не так")
+                switch responce {
+                case .error:
+                    let alert = self?.alertAction("Ошибка", massage: "Проверьте введённые данные и повторите попытку")
                     let verefyBtn = UIAlertAction(title: "ok", style: .cancel)
                     alert?.addAction(verefyBtn)
                     self?.present(alert!, animated: true)
-                case 1:
+                case .success:
                     print("next")
-                default:
-                    print("Неизвестная ошибка")
+                case .noVerify:
+                    let alert = self?.alertAction("Ошибка", massage: "Вы не верифицировали свой аккаунт!\n Проверьте свою почту!")
+                    let verefyBtn = UIAlertAction(title: "ok", style: .cancel){_ in
+                        
+                    }
+                    alert?.addAction(verefyBtn)
+                    self?.present(alert!, animated: true)
                 }
             }
         }
