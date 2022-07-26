@@ -45,11 +45,18 @@ class RegViewController: UIViewController {
                 service.createNewUser(LoginField(email: emailField.text!, password: passwordField.text!)) { code in
                     switch code.code {
                     case 0:
-                        print("Произошла ошибка регистрации")
+                        let alert = UIAlertController(title: "Ой", message: "Произошла ошибка при регистрации", preferredStyle: .alert)
+                        let okBtn = UIAlertAction(title: "Ok", style: .default)
+                        alert.addAction(okBtn)
+                        self.present(alert, animated: true)
                     case 1:
                         self.service.configureEmail()
-                        let alert = UIAlertController(title: "Ура", message: "Вы успешно зарегистрировались", preferredStyle: .alert)
-                        let okBtn = UIAlertAction(title: "Ok", style: .default)
+                        let alert = UIAlertController(title: "Ура", message: "Вы успешно зарегистрировались \n Вы можете авторизироваться", preferredStyle: .alert)
+                        let okBtn = UIAlertAction(title: "Ok", style: .default){_ in 
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let vc = storyboard.instantiateViewController(withIdentifier: "AuthViewController")
+                            self.navigationController?.pushViewController(vc, animated: true)
+                        }
                         alert.addAction(okBtn)
                         self.present(alert, animated: true)
                     default:
@@ -57,8 +64,10 @@ class RegViewController: UIViewController {
                     }
                 }
             } else {
-                print("Пароли не совпадают")
-            }
+                let alert = UIAlertController(title: "Ой", message: "Пароли не совпадают", preferredStyle: .alert)
+                let okBtn = UIAlertAction(title: "Ok", style: .default)
+                alert.addAction(okBtn)
+                self.present(alert, animated: true)            }
         }
     }
 

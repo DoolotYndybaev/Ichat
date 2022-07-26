@@ -451,6 +451,7 @@
                     <connections>
                         <outlet property="emailField" destination="sry-Kf-4es" id="3vS-9v-qPh"/>
                         <outlet property="emailView" destination="jXt-gL-CUx" id="Aok-xS-BsO"/>
+                        <outlet property="mainView" destination="f02-6T-Etw" id="qtf-zj-LBY"/>
                         <outlet property="passwordField" destination="v0B-4x-nKH" id="in2-ms-whO"/>
                         <outlet property="passwordView" destination="nCt-jd-b9B" id="u45-mV-Kgv"/>
                     </connections>

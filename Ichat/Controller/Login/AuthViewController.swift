@@ -12,7 +12,12 @@ import FirebaseAuth
 class AuthViewController: UIViewController {
     
     var service = Service.shared
+    var tapGest: UITapGestureRecognizer?
+    var checkdield = CheckField.shared
+
+
     
+    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var emailView: UIView!
     
     @IBOutlet weak var emailField: UITextField!
@@ -24,7 +29,8 @@ class AuthViewController: UIViewController {
 
         self.navigationItem.setHidesBackButton(true, animated: true)
         
-        
+        tapGest = UITapGestureRecognizer(target: self, action: #selector(endEditing))
+        mainView.addGestureRecognizer(tapGest!)
     }
     @objc func endEditing() {
         self.view.endEditing(true)
@@ -39,6 +45,26 @@ class AuthViewController: UIViewController {
     }
     
     @IBAction func sigInBtn(_ sender: Any) {
-
+        if checkdield.validField(emailView, emailField), checkdield.validField(passwordView, passwordField)
+        {
+            let authData = LoginField(email: emailField.text!, password: passwordField.text!)
+            service.authInApp(authData) {[weak self] responce in
+                switch responce.code {
+                case 0:
+                    let alert = self?.alertAction("Ошибка", massage: "Что - то пошло не так")
+                    let verefyBtn = UIAlertAction(title: "ok", style: .cancel)
+                    alert?.addAction(verefyBtn)
+                    self?.present(alert!, animated: true)
+                case 1:
+                    print("next")
+                default:
+                    print("Неизвестная ошибка")
+                }
+            }
+        }
+    }
+    func alertAction(_ header: String?, massage: String?) -> UIAlertController{
+        let alert = UIAlertController(title: header, message: massage, preferredStyle: .alert)
+        return alert
     }
 }
