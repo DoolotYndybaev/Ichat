@@ -8,6 +8,8 @@
 import UIKit
 
 class RegViewController: UIViewController {
+    var delegate: OpenVCDelegate!
+
     var tapGest: UITapGestureRecognizer?
     var checkdield = CheckField.shared
     var service = Service.shared
@@ -33,9 +35,7 @@ class RegViewController: UIViewController {
         self.view.endEditing(true)
     }
     @IBAction func backGreetVC(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "GreetViewController")
-        self.navigationController?.pushViewController(vc, animated: true)
+        delegate.closeVC()
     }
     @IBAction func regBtnClick(_ sender: Any) {
         if checkdield.validField(emailView, emailField), checkdield.validField(passwordView, passwordField)

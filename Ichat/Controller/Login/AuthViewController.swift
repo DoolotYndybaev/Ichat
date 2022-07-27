@@ -10,6 +10,9 @@ import Firebase
 import FirebaseAuth
 
 class AuthViewController: UIViewController {
+    var delegate: OpenVCDelegate!
+    var userDefault = UserDefaults.standard
+
     
     var service = Service.shared
     var tapGest: UITapGestureRecognizer?
@@ -36,9 +39,7 @@ class AuthViewController: UIViewController {
         self.view.endEditing(true)
     }
     @IBAction func backGreetVC(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "GreetViewController")
-        self.navigationController?.pushViewController(vc, animated: true)
+        delegate.closeVC()
     }
     
     @IBAction func noAccountBtn(_ sender: Any) {
@@ -51,12 +52,15 @@ class AuthViewController: UIViewController {
             service.authInApp(authData) {[weak self] responce in
                 switch responce {
                 case .error:
-                    let alert = self?.alertAction("Ошибка", massage: "Проверьте введённые данные и повторите попытку")
+                    let alert = self?.alertAction("Ошибка", massage: "проверьте введённые данные и повторите попытку")
                     let verefyBtn = UIAlertAction(title: "ok", style: .cancel)
                     alert?.addAction(verefyBtn)
                     self?.present(alert!, animated: true)
                 case .success:
                     print("next")
+                    self?.userDefault.set(true, forKey: "isLogin")
+                    self?.delegate.startApp()
+                    self?.delegate.closeVC()
                 case .noVerify:
                     let alert = self?.alertAction("Ошибка", massage: "Вы не верифицировали свой аккаунт!\n Проверьте свою почту!")
                     let verefyBtn = UIAlertAction(title: "ok", style: .cancel){_ in
