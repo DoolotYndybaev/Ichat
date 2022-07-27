@@ -460,51 +460,48 @@
             </objects>
             <point key="canvasLocation" x="2683" y="64"/>
         </scene>
-        <!--Item 2-->
+        <!--Сообщения-->
         <scene sceneID="Sbr-d8-43g">
             <objects>
                 <viewController id="E92-1n-cEd" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AjY-BV-6Xf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPD-DJ-Bip">
-                                <rect key="frame" x="186" y="438" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="pZJ-bd-gim"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="CzJ-Yo-Tb5"/>
+                    <tabBarItem key="tabBarItem" title="Сообщения" image="message" catalog="system" selectedImage="message.fill" id="CzJ-Yo-Tb5"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1iH-hC-DsJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1228" y="1505"/>
         </scene>
-        <!--Item 1-->
+        <!--Пользователи-->
         <scene sceneID="iow-ww-pAA">
             <objects>
-                <viewController id="dgc-zj-SvV" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UsersViewController" id="dgc-zj-SvV" customClass="UsersViewController" customModule="Ichat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="S5G-Vp-Nbq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="авторизован" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMo-PJ-dOQ">
-                                <rect key="frame" x="186" y="438" width="101" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="reH-7f-bGr">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kdV-7U-G14"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="reH-7f-bGr" firstAttribute="leading" secondItem="kdV-7U-G14" secondAttribute="leading" id="3bN-dS-uEr"/>
+                            <constraint firstItem="kdV-7U-G14" firstAttribute="bottom" secondItem="reH-7f-bGr" secondAttribute="bottom" id="7kf-2s-rJv"/>
+                            <constraint firstItem="kdV-7U-G14" firstAttribute="trailing" secondItem="reH-7f-bGr" secondAttribute="trailing" id="dZF-He-bGu"/>
+                            <constraint firstItem="reH-7f-bGr" firstAttribute="top" secondItem="kdV-7U-G14" secondAttribute="top" id="rJi-xh-R9B"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="wzo-UG-ShX"/>
+                    <tabBarItem key="tabBarItem" title="Пользователи" image="person.2" catalog="system" selectedImage="person.2.fill" id="wzo-UG-ShX"/>
+                    <connections>
+                        <outlet property="tableView" destination="reH-7f-bGr" id="IHg-5t-zae"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H4l-aP-Fg2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -550,6 +547,10 @@
     <resources>
         <image name="Icon For IChat (1)" width="341" height="341"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="message" catalog="system" width="128" height="113"/>
+        <image name="message.fill" catalog="system" width="128" height="113"/>
+        <image name="person.2" catalog="system" width="128" height="81"/>
+        <image name="person.2.fill" catalog="system" width="128" height="80"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
