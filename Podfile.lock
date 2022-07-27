@@ -344,11 +344,6 @@ PODS:
   - BoringSSL-GRPC/Implementation (0.0.7):
     - BoringSSL-GRPC/Interface (= 0.0.7)
   - BoringSSL-GRPC/Interface (0.0.7)
-  - Firebase/Auth (8.12.1):
-    - Firebase/CoreOnly
-    - FirebaseAuth (~> 8.12.0)
-  - Firebase/CoreOnly (8.12.1):
-    - FirebaseCore (= 8.12.1)
   - FirebaseAuth (8.12.0):
     - FirebaseCore (~> 8.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
@@ -429,14 +424,13 @@ PODS:
   - PromisesObjC (2.0.0)
 
 DEPENDENCIES:
-  - Firebase/Auth
+  - FirebaseAuth
   - FirebaseFirestore
 
 SPEC REPOS:
   trunk:
     - abseil
     - BoringSSL-GRPC
-    - Firebase
     - FirebaseAuth
     - FirebaseCore
     - FirebaseCoreDiagnostics
@@ -453,7 +447,6 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
   BoringSSL-GRPC: 8edf627ee524575e2f8d19d56f068b448eea3879
-  Firebase: 580d09e8edafc3073ebf09c03fd42e4d80d35fe9
   FirebaseAuth: 5250d7bdba35e57cc34ec7ddc525f82b2757f2a0
   FirebaseCore: 8138de860a90ca7eec5e324da5788fb0ebf1d93c
   FirebaseCoreDiagnostics: 3b40dfadef5b90433a60ae01f01e90fe87aa76aa
@@ -467,6 +460,6 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
 
-PODFILE CHECKSUM: 88aeae74a82bc0934c4cd37c6d0f5a2f761fa2f2
+PODFILE CHECKSUM: 2ea476b2a480da49905acab79c9e8b9fc03e4dd5
 
 COCOAPODS: 1.11.2
